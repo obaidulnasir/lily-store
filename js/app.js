@@ -9,6 +9,7 @@ loadProducts();
 
 // single product 
 const detailsBtn = (id) => {
+ 
   const url = `https://fakestoreapi.com/products/${id}`;
   fetch(url)
   .then(res=>res.json())
@@ -16,8 +17,8 @@ const detailsBtn = (id) => {
 }
 
 const showDetails = (details) => {
-  console.log(details);
-  
+  // console.log(details);
+  document.getElementById("single-product").innerHTML = '';
   const productContainer = document.getElementById("single-product");
   const div = document.createElement("div");
   div.innerHTML = `
@@ -28,7 +29,7 @@ const showDetails = (details) => {
       <div>
         <p class="fw-bold">${details.title}</p>
         <p>${details.description}</p>
-        <p>${details.price}$</p>
+        <p class="fw-bold">Price: ${details.price}$</p>
       </div>
   `
   productContainer.appendChild(div)
@@ -39,7 +40,7 @@ const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     // my line
-    // console.log(product);
+    console.log(product);
 
     const image = product.image;
     const div = document.createElement("div");
@@ -91,15 +92,15 @@ const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
-  // document.getElementById(id).innerText = Math.round(total);
+  document.getElementById(id).innerText = total.toFixed(2);
   // my line
-  document.getElementById(id).innerText = Math.round(total * 100) / 100;
+  // document.getElementById(id).innerText = Math.round(total * 100) / 100;
 };
 
 // set innerText function
 const setInnerText = (id, value) => {
   // my line
-  document.getElementById(id).innerText = Math.round(value * 100) / 100;
+  document.getElementById(id).innerText = value.toFixed(2);
 };
 
 // update delivery charge and total Tax
@@ -127,8 +128,9 @@ const updateTotal = () => {
     getInputValue("total-tax");
 
   // my line
-  Math.round(grandTotal * 100) / 100;
+  // Math.round(grandTotal * 100) / 100;
+ const mainTotal = grandTotal.toFixed(2);
   // console.log(getInputValue("price"));
 
-  document.getElementById("total").innerText = grandTotal;
+  document.getElementById("total").innerText = mainTotal;
 };
