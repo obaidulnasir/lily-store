@@ -51,7 +51,7 @@ const showProducts = (products) => {
       <div>
         <img class="product-image" src=${image}></img>
       </div>
-      <h3>${product.title}</h3>
+      <h4>${product.title}</h4>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
 
@@ -60,8 +60,8 @@ const showProducts = (products) => {
         <p><i class="bi bi-star-fill"></i> ${product.rating.rate} (${product.rating.count})</p>
       </div>
 
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">Add to cart</button>
-      <button onclick ="detailsBtn(${product.id})" class="btn btn-danger">Details</button>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success"><i class="bi bi-cart-plus"></i> Add to cart</button>
+      <button onclick ="detailsBtn(${product.id})" class="btn btn-primary"><i class="bi bi-info-circle"></i> Details</button>
     </div>
       `;
     document.getElementById("all-products").appendChild(div);
