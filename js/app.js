@@ -17,7 +17,7 @@ const detailsBtn = (id) => {
 }
 
 const showDetails = (details) => {
-  // console.log(details);
+  
   document.getElementById("single-product").innerHTML = '';
   const productContainer = document.getElementById("single-product");
   const div = document.createElement("div");
@@ -40,9 +40,7 @@ const showDetails = (details) => {
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    // my line
-    console.log(product);
-
+    
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
@@ -72,7 +70,7 @@ let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
-  // my line
+  
   updateTotal();
 
   updateTaxAndCharge();
@@ -81,8 +79,7 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
-  // const converted = parseInt(element);
-  // my line
+  
   const converted = Math.round(element * 100) / 100;
 
   return converted;
@@ -94,13 +91,12 @@ const updatePrice = (id, value) => {
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
   document.getElementById(id).innerText = total.toFixed(2);
-  // my line
-  // document.getElementById(id).innerText = Math.round(total * 100) / 100;
+  
 };
 
 // set innerText function
 const setInnerText = (id, value) => {
-  // my line
+ 
   document.getElementById(id).innerText = value.toFixed(2);
 };
 
@@ -131,10 +127,6 @@ const updateTotal = () => {
     getInputValue("delivery-charge") +
     getInputValue("total-tax");
 
-  // my line
-  // Math.round(grandTotal * 100) / 100;
  const mainTotal = grandTotal.toFixed(2);
-  // console.log(getInputValue("price"));
-
   document.getElementById("total").innerText = mainTotal;
 };
