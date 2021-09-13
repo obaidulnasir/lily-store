@@ -32,7 +32,8 @@ const showDetails = (details) => {
         <p class="fw-bold">Price: ${details.price}$</p>
       </div>
   `
-  productContainer.appendChild(div)
+  productContainer.appendChild(div);
+  window.scroll (0, 25)
 
 }
 // show all product in UI
@@ -109,14 +110,17 @@ const updateTaxAndCharge = () => {
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", priceConverted * 0.2);
+    updateTotal();
   }
   if (priceConverted > 400) {
     setInnerText("delivery-charge", 50);
     setInnerText("total-tax", priceConverted * 0.3);
+    updateTotal();
   }
   if (priceConverted > 500) {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", priceConverted * 0.4);
+    updateTotal();
   }
 };
 
