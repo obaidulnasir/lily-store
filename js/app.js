@@ -51,7 +51,7 @@ const showProducts = (products) => {
       </div>
       <h4>${product.title}</h4>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
+      <h5>Price: $ ${product.price}</h5>
 
       <!-- my line -->
       <div class="">
